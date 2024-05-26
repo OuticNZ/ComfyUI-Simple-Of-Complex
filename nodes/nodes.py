@@ -23,3 +23,32 @@ class TextSwitch2Way:
                 return (text2,)
         else:
             return (text1,)
+        
+class PromptTidy:     
+
+    @classmethod
+    def INPUT_TYPES(cls):
+               
+        return {"required": {       
+                    "prompt": ("STRING", {"multiline": False, "default": ""}),
+                    }
+                }
+
+    RETURN_TYPES = ("STRING",)
+    FUNCTION = "prompt_tidy"
+    OUTPUT_NODE = True
+    CATEGORY = "SimpleOfComplex"
+
+    def prompt_tidy(self, prompt):
+
+        prompt1=""
+        while not (prompt1 == prompt):
+            prompt1=prompt
+            prompt=prompt.replace(" ,",",")
+            prompt=prompt.replace(", ",",")
+            prompt=prompt.replace(",,",",")
+
+        if prompt.startswith(","):
+            prompt=prompt[1:]
+        
+        return (prompt,)
