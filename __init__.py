@@ -1,7 +1,7 @@
 from .nodes.nodes import *
 
 NODE_CLASS_MAPPINGS = { 
-    "Text Switch 2 Way": TextSwitch2Way
+    "Text Switch 2 Way": TextSwitch2Way,
     "Prompt Tidy": PromptTidy
     }
     
