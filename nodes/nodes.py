@@ -14,7 +14,7 @@ class TextSwitch2Way:
     OUTPUT_NODE = True
     CATEGORY = "SimpleOfComplex"
 
-    def textswitch2way(self, text1,text2):
+    def text_switch2way(self, text1,text2):
 
         if text1 is None or text1 == "":
             if text2 is None or text2 == "":
