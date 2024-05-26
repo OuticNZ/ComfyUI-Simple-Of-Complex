@@ -18,8 +18,8 @@ class TextSwitch2Way:
 
         if text1 is None or text1 == "":
             if text2 is None or text2 == "":
-                return ""
+                return ("",)
             else:
-                return text2
+                return (text2,)
         else:
-            return text1
+            return (text1,)
