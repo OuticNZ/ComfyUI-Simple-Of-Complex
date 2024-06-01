@@ -27,7 +27,6 @@ class SoCParameters2Pipe:
                 }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    OUTPUT_NODE = True
     RETURN_TYPES = ("SoCPipeParameters",)
 
     FUNCTION = "execute"
@@ -85,7 +84,6 @@ class SoCPipe2Parameters:
         }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    OUTPUT_NODE = True
     RETURN_TYPES = ("SoCPipeParameters", "STRING", "STRING", "STRING", "STRING", "STRING", "STRING", "INT", "INT", "INT", "FLOAT", "INT", "INT",)
     RETURN_NAMES = ("SoCPipeParameters", "model_name", "path_name", "sampler_name", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width")
 
