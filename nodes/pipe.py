@@ -5,7 +5,7 @@ class SoCParameters2Pipe:
         pass
 
     @classmethod
-    def INPUT_TYPES(cls):
+    def INPUT_TYPES(s):
                
         return {
             "required": {},
@@ -45,9 +45,6 @@ class SoCParameters2Pipe:
         image_width_original = None
         image_height_original = None
 
-        
-
-
         if SoCPipeParameters != None:
             model_name_original, path_name_original, sampler_name_original, scheduler_name_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original = SoCPipeParameters
 
@@ -74,7 +71,7 @@ class SoCPipe2Parameters:
         pass
 
     @classmethod
-    def INPUT_TYPES(cls):
+    def INPUT_TYPES(s):
         return {
             "required": {
                 "SoCPipeParameters": ("SoCPipeParameters",),
