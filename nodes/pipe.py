@@ -1,4 +1,5 @@
 import sys
+import comfy.sd
 
 FLOAT = ("FLOAT", {"default": 1,
                    "min": -sys.float_info.max,
@@ -36,8 +37,8 @@ class SoCParameters2Pipe:
                     "SoCPipeParameters": ("SoCPipeParameters",),     
                     "model_name": STRING,
                     "path_name": STRING,
-                    "sampler_name": STRING,
-                    "scheduler_name": STRING,
+                    "sampler": comfy.samplers.KSampler.SAMPLERS,
+                    "scheduler": comfy.samplers.KSampler.SCHEDULERS,
                     "postive_prompt": STRING,
                     "negative_prompt": STRING,
                     "seed": INT,
@@ -54,11 +55,11 @@ class SoCParameters2Pipe:
 
     FUNCTION = "execute"
 
-    def execute(self, SoCPipeParameters=None, model_name=None, path_name=None, sampler_name=None, scheduler_name=None, postive_prompt=None, negative_prompt=None, seed=None, batch_count=None, steps=None, CFG=None, image_width=None, image_height=None):
+    def execute(self, SoCPipeParameters=None, model_name=None, path_name=None, sampler=None, scheduler=None, postive_prompt=None, negative_prompt=None, seed=None, batch_count=None, steps=None, CFG=None, image_width=None, image_height=None):
         model_name_original = None
         path_name_original = None
-        sampler_name_original = None
-        scheduler_name_original = None
+        sampler_original = None
+        scheduler_original = None
         postive_prompt_original = None
         negative_prompt_original = None
         seed_original = None 
@@ -69,14 +70,14 @@ class SoCParameters2Pipe:
         image_height_original = None
 
         if SoCPipeParameters != None:
-            model_name_original, path_name_original, sampler_name_original, scheduler_name_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original = SoCPipeParameters
+            model_name_original, path_name_original, sampler_original, scheduler_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original = SoCPipeParameters
 
         SoCPipeParametersMod = []
 
         SoCPipeParametersMod.append(model_name if model_name is not None else model_name_original)
         SoCPipeParametersMod.append(path_name if path_name is not None else path_name_original)
-        SoCPipeParametersMod.append(sampler_name if sampler_name is not None else sampler_name_original)
-        SoCPipeParametersMod.append(scheduler_name if scheduler_name is not None else scheduler_name_original)
+        SoCPipeParametersMod.append(sampler if sampler is not None else sampler_original)
+        SoCPipeParametersMod.append(scheduler if scheduler is not None else scheduler_original)
         SoCPipeParametersMod.append(postive_prompt if postive_prompt is not None else postive_prompt_original)
         SoCPipeParametersMod.append(negative_prompt if negative_prompt is not None else negative_prompt_original)
         SoCPipeParametersMod.append(seed if seed is not None else seed_original)
@@ -104,11 +105,11 @@ class SoCPipe2Parameters:
         }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    RETURN_TYPES = ("SoCPipeParameters", "STRING", "STRING", "STRING", "STRING", "STRING", "STRING", "INT", "INT", "INT", "FLOAT", "INT", "INT",)
-    RETURN_NAMES = ("SoCPipeParameters", "model_name", "path_name", "sampler_name", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width")
+    RETURN_TYPES = ("SoCPipeParameters", "STRING", "STRING", "comfy.samplers.KSampler.SAMPLERS", "comfy.samplers.KSampler.SCHEDULERS", "STRING", "STRING", "INT", "INT", "INT", "FLOAT", "INT", "INT",)
+    RETURN_NAMES = ("SoCPipeParameters", "model_name", "path_name", "sampler", "scheduler", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width")
 
     FUNCTION = "execute"
 
     def execute(self, SoCPipeParameters=None, ):
-        model_name_original, path_name_original, sampler_name_original, scheduler_name_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original = SoCPipeParameters
-        return SoCPipeParameters, model_name_original, path_name_original, sampler_name_original, scheduler_name_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original
+        model_name_original, path_name_original, sampler_original, scheduler_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original = SoCPipeParameters
+        return SoCPipeParameters, model_name_original, path_name_original, sampler_original, scheduler_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original
