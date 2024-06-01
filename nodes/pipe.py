@@ -6,7 +6,7 @@ class SoCPipeToParamters:
     def INPUT_TYPES(cls):
                
         return {"optional": {  
-                    "SoCPipeToParamters": ("SoCPipeToParamters",),     
+                    "SoCPipeParamters": ("SoCPipeParamters",),     
                     "model_name": ("STRING", {"multiline": False, "default": ""}),
                     "path_name": ("STRING", {"multiline": False, "default": ""}),
                     "sampler_name": ("STRING", {"multiline": False, "default": ""}),
@@ -23,7 +23,7 @@ class SoCPipeToParamters:
                 }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    RETURN_TYPES = ("SoCPipeToParamters",)
+    RETURN_TYPES = ("SoCPipeParamters",)
 
     FUNCTION = "execute"
 
@@ -73,15 +73,15 @@ class SoCPipeFromParamters:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "SoCPipeToParamters": ("SoCPipeToParamters",),
+                "SoCPipeParamters": ("SoCPipeParamters",),
             },
             "optional": {
             }
         }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    RETURN_TYPES = ("SoCPipeToParamters", "STRING", "STRING", "STRING", "STRING", "STRING", "STRING", int, int, int, float, int, int,)
-    RETURN_NAMES = ("SoCPipeToParamters", "model_name", "path_name", "sampler_name", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width")
+    RETURN_TYPES = ("SoCPipeParamters", "STRING", "STRING", "STRING", "STRING", "STRING", "STRING", int, int, int, float, int, int,)
+    RETURN_NAMES = ("SoCPipeParamters", "model_name", "path_name", "sampler_name", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width")
 
     FUNCTION = "execute"
 
