@@ -1,3 +1,5 @@
+import xml.etree.ElementTree as ET
+
 class TextSwitch2Way:     
 
     @classmethod
@@ -10,11 +12,11 @@ class TextSwitch2Way:
                 }
 
     RETURN_TYPES = ("STRING",)
-    FUNCTION = "text_switch2way"
+    FUNCTION = "execute"
     OUTPUT_NODE = True
-    CATEGORY = "SimpleOfComplex"
+    CATEGORY = "SimpleOfComplex/Switch"
 
-    def text_switch2way(self, text1,text2):
+    def execute(self, text1,text2):
 
         if text1 is None or text1 == "":
             if text2 is None or text2 == "":
@@ -23,7 +25,9 @@ class TextSwitch2Way:
                 return (text2,)
         else:
             return (text1,)
-        
+
+
+
 class PromptTidy:     
 
     @classmethod
@@ -35,11 +39,11 @@ class PromptTidy:
                 }
 
     RETURN_TYPES = ("STRING",)
-    FUNCTION = "prompt_tidy"
+    FUNCTION = "execute"
     OUTPUT_NODE = True
-    CATEGORY = "SimpleOfComplex"
+    CATEGORY = "SimpleOfComplex/Prompt"
 
-    def prompt_tidy(self, prompt):
+    def execute(self, prompt):
 
         prompt1=""
         while not (prompt1 == prompt):
