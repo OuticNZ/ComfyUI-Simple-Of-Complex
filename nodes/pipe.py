@@ -1,5 +1,28 @@
 import sys
 
+FLOAT = ("FLOAT", {"default": 1,
+                   "min": -sys.float_info.max,
+                   "max": sys.float_info.max,
+                   "step": 0.01})
+
+BOOLEAN = ("BOOLEAN", {"default": True})
+BOOLEAN_FALSE = ("BOOLEAN", {"default": False})
+
+INT = ("INT", {"default": 1,
+               "min": -sys.maxsize,
+               "max": sys.maxsize,
+               "step": 1})
+
+STRING = ("STRING", {"default": ""})
+
+STRING_ML = ("STRING", {"multiline": True, "default": ""})
+
+STRING_WIDGET = ("STRING", {"forceInput": True})
+
+JSON_WIDGET = ("JSON", {"forceInput": True})
+
+METADATA_RAW = ("METADATA_RAW", {"forceInput": True})
+
 class SoCParameters2Pipe:
     def __init__(self):
         pass
@@ -11,18 +34,18 @@ class SoCParameters2Pipe:
             "required": {},
             "optional": {  
                     "SoCPipeParameters": ("SoCPipeParameters",),     
-                    "model_name": ("STRING", {"default": ""}),
-                    "path_name": ("STRING", {"default": ""}),
-                    "sampler_name": ("STRING", {"default": ""}),
-                    "scheduler_name": ("STRING", {"default": ""}),
-                    "postive_prompt": ("STRING", {"default": ""}),
-                    "negative_prompt": ("STRING", {"default": ""}),
-                    "seed": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
-                    "batch_count": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
-                    "steps": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
-                    "CFG": ("FLOAT", {"default": 1,"min": -sys.float_info.max,"max": sys.float_info.max,"step": 0.01}),
-                    "image_width": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
-                    "image_height": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
+                    "model_name": STRING,
+                    "path_name": STRING,
+                    "sampler_name": STRING,
+                    "scheduler_name": STRING,
+                    "postive_prompt": STRING,
+                    "negative_prompt": STRING,
+                    "seed": INT,
+                    "batch_count": INT,
+                    "steps": INT,
+                    "CFG": FLOAT,
+                    "image_width": INT,
+                    "image_height": INT,
                     }
                 }
 
