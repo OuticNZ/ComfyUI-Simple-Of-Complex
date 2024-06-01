@@ -1,3 +1,5 @@
+import sys
+
 class SoCParameters2Pipe:
     def __init__(self):
         pass
@@ -5,20 +7,22 @@ class SoCParameters2Pipe:
     @classmethod
     def INPUT_TYPES(cls):
                
-        return {"optional": {  
+        return {
+            "required": {},
+            "optional": {  
                     "SoCPipeParameters": ("SoCPipeParameters",),     
-                    "model_name": ("STRING", {"multiline": False, "default": ""}),
-                    "path_name": ("STRING", {"multiline": False, "default": ""}),
-                    "sampler_name": ("STRING", {"multiline": False, "default": ""}),
-                    "scheduler_name": ("STRING", {"multiline": False, "default": ""}),
-                    "postive_prompt": ("STRING", {"multiline": False, "default": ""}),
-                    "negative_prompt": ("STRING", {"multiline": False, "default": ""}),
-                    "seed": int,
-                    "batch_count": int,
-                    "steps": int,
-                    "CFG": float,
-                    "image_width": int,
-                    "image_height": int,
+                    "model_name": ("STRING", {"default": ""}),
+                    "path_name": ("STRING", {"default": ""}),
+                    "sampler_name": ("STRING", {"default": ""}),
+                    "scheduler_name": ("STRING", {"default": ""}),
+                    "postive_prompt": ("STRING", {"default": ""}),
+                    "negative_prompt": ("STRING", {"default": ""}),
+                    "seed": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
+                    "batch_count": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
+                    "steps": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
+                    "CFG": ("FLOAT", {"default": 1,"min": -sys.float_info.max,"max": sys.float_info.max,"step": 0.01}),
+                    "image_width": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
+                    "image_height": ("INT", {"default": 1,"min": -sys.maxsize,"max": sys.maxsize,"step": 1}),
                     }
                 }
 
@@ -82,7 +86,7 @@ class SoCPipe2Parameters:
 
     CATEGORY = "SimpleOfComplex/Pipe"
     OUTPUT_NODE = True
-    RETURN_TYPES = ("SoCPipeParameters", "STRING", "STRING", "STRING", "STRING", "STRING", "STRING", int, int, int, float, int, int,)
+    RETURN_TYPES = ("SoCPipeParameters", "STRING", "STRING", "STRING", "STRING", "STRING", "STRING", "INT", "INT", "INT", "FLOAT", "INT", "INT",)
     RETURN_NAMES = ("SoCPipeParameters", "model_name", "path_name", "sampler_name", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width")
 
     FUNCTION = "execute"
