@@ -64,6 +64,8 @@ class SoCParameters2Pipe:
                     "CFG": FLOAT_INPUT,
                     "image_width": INT_INPUT,
                     "image_height": INT_INPUT,
+                    "stage1_scale_factor": FLOAT_INPUT,
+                    "stage2_scale_factor": FLOAT_INPUT
                     }
                 }
 
@@ -72,7 +74,7 @@ class SoCParameters2Pipe:
 
     FUNCTION = "execute"
 
-    def execute(self, SoCPipeParameters=None, model_name=None, path_name=None, sampler=None, scheduler=None,scheduler_name=None, postive_prompt=None, negative_prompt=None, seed=None, batch_count=None, steps=None, CFG=None, image_width=None, image_height=None):
+    def execute(self, SoCPipeParameters=None, model_name=None, path_name=None, sampler=None, scheduler=None,scheduler_name=None, postive_prompt=None, negative_prompt=None, seed=None, batch_count=None, steps=None, CFG=None, image_width=None, image_height=None, stage1_scale_factor=None, stage2_scale_factor=None):
         model_name_original = None
         path_name_original = None
         sampler_original = None
@@ -86,9 +88,11 @@ class SoCParameters2Pipe:
         CFG_original = None
         image_width_original = None
         image_height_original = None
+        stage1_scale_factor_original = None
+        stage2_scale_factor_original = None
 
         if SoCPipeParameters != None:
-            model_name_original, path_name_original, sampler_original, scheduler_original, scheduler_name_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original = SoCPipeParameters
+            model_name_original, path_name_original, sampler_original, scheduler_original, scheduler_name_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original, stage1_scale_factor_original, stage2_scale_factor_original = SoCPipeParameters
 
         SoCPipeParametersMod = []
 
@@ -105,6 +109,8 @@ class SoCParameters2Pipe:
         SoCPipeParametersMod.append(CFG if CFG is not None else CFG_original)
         SoCPipeParametersMod.append(image_width if image_width is not None else image_width_original)
         SoCPipeParametersMod.append(image_height if image_height is not None else image_height_original)
+        SoCPipeParametersMod.append(stage1_scale_factor if stage1_scale_factor is not None else stage1_scale_factor_original)
+        SoCPipeParametersMod.append(stage2_scale_factor if stage2_scale_factor is not None else stage2_scale_factor_original)
 
         return (SoCPipeParametersMod,)
 
@@ -124,11 +130,11 @@ class SoCPipe2Parameters:
         }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    RETURN_TYPES = (CLASSES.SOC_PIPE_PARAMETERS.value, STRING, STRING, any, any, any, STRING, STRING, INT, INT, INT, FLOAT, INT, INT,)
-    RETURN_NAMES = ("SoCPipeParameters", "modelname", "path_name", "sampler_name", "scheduler", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width")
+    RETURN_TYPES = (CLASSES.SOC_PIPE_PARAMETERS.value, STRING, STRING, any, any, any, STRING, STRING, INT, INT, INT, FLOAT, INT, INT,FLOAT, FLOAT)
+    RETURN_NAMES = ("SoCPipeParameters", "modelname", "path_name", "sampler_name", "scheduler", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width", "stage1_scale_factor", "stage2_scale_factor")
 
     FUNCTION = "execute"
 
     def execute(self, SoCPipeParameters=None, ):
-        model_name_original, path_name_original, sampler_original, scheduler_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original = SoCPipeParameters
-        return SoCPipeParameters, model_name_original, path_name_original, sampler_original, scheduler_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original
+        model_name_original, path_name_original, sampler_original, scheduler_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original, stage1_scale_factor_original, stage2_scale_factor_original = SoCPipeParameters
+        return SoCPipeParameters, model_name_original, path_name_original, sampler_original, scheduler_original, postive_prompt_original, negative_prompt_original,seed_original,batch_count_original,steps_original,CFG_original,image_width_original, image_height_original, stage1_scale_factor_original, stage2_scale_factor_original
