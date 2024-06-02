@@ -53,9 +53,9 @@ class SoCParameters2Pipe:
                     "SoCPipeParameters": (CLASSES.SOC_PIPE_PARAMETERS.value,),     
                     "modelname": STRING_INPUT,
                     "path_name": STRING_INPUT,
-                    "sampler_name": comfy.samplers.KSampler.SAMPLERS,
-                    "scheduler": comfy.samplers.KSampler.SCHEDULERS,
-                    "scheduler_name": STRING_INPUT,
+                    "sampler_name": any,
+                    "scheduler": any,
+                    "scheduler_name": any,
                     "postive_prompt": STRING_INPUT,
                     "negative_prompt": STRING_INPUT,
                     "seed": INT_INPUT,
@@ -124,7 +124,7 @@ class SoCPipe2Parameters:
         }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    RETURN_TYPES = (CLASSES.SOC_PIPE_PARAMETERS.value, STRING, STRING, comfy.samplers.KSampler.SAMPLERS, comfy.samplers.KSampler.SCHEDULERS,STRING, STRING, STRING, INT, INT, INT, FLOAT, INT, INT,)
+    RETURN_TYPES = (CLASSES.SOC_PIPE_PARAMETERS.value, STRING, STRING, any, any, any, STRING, STRING, INT, INT, INT, FLOAT, INT, INT,)
     RETURN_NAMES = ("SoCPipeParameters", "modelname", "path_name", "sampler_name", "scheduler", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width")
 
     FUNCTION = "execute"
