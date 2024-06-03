@@ -12,7 +12,10 @@ FLOAT = ("FLOAT", {"default": 1,
                    "step": 0.01})
 
 FLOAT_INPUT = ("FLOAT", {"default": 1,
-                         "forceInput": True})
+                    "min": -sys.float_info.max,
+                    "max": sys.float_info.max,
+                    "step": 0.01,
+                    "forceInput": True})
 
 BOOLEAN = ("BOOLEAN", {"default": True})
 BOOLEAN_FALSE = ("BOOLEAN", {"default": False})
@@ -23,12 +26,15 @@ INT = ("INT", {"default": 1,
                "step": 1})
 
 INT_INPUT = ("INT", {"default": 1,
-               "forceInput": True})
+                "min": -sys.maxsize,
+                "max": sys.maxsize,
+                "step": 1,
+                "forceInput": True})
 
 STRING = ("STRING", {"default": ""})
 
 STRING_INPUT = ("STRING", {"default": "",
-                     "forceInput": True})
+                           "forceInput": True})
 
 STRING = ("STRING", {"default": ""})
 
