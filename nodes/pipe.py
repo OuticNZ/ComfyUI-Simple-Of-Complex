@@ -1,51 +1,11 @@
-import sys
+from ..core import any, TYPES, CLASSES
 import comfy.sd
-from enum import Enum
 
 
-class CLASSES(Enum):
-    SOC_PIPE_PARAMETERS = 'SoCPipeParameters'
 
-FLOAT = ("FLOAT", {"default": 1,
-                   "min": -sys.float_info.max,
-                   "max": sys.float_info.max,
-                   "step": 0.01})
 
-FLOAT_INPUT = ("FLOAT", {"default": 1,
-                    "min": -sys.float_info.max,
-                    "max": sys.float_info.max,
-                    "step": 0.01,
-                    "forceInput": True})
 
-BOOLEAN = ("BOOLEAN", {"default": True})
 
-BOOLEAN_FALSE = ("BOOLEAN", {"default": False})
-
-INT = ("INT", {"default": 1,
-               "min": -sys.maxsize,
-               "max": sys.maxsize,
-               "step": 1})
-
-INT_INPUT = ("INT", {"default": 1,
-                "min": -sys.maxsize,
-                "max": sys.maxsize,
-                "step": 1,
-                "forceInput": True})
-
-STRING = ("STRING", {"default": ""})
-
-STRING_INPUT = ("STRING", {"default": "",
-                           "forceInput": True})
-
-STRING = ("STRING", {"default": ""})
-
-STRING_ML = ("STRING", {"multiline": True, "default": ""})
-
-STRING_WIDGET = ("STRING", {"forceInput": True})
-
-JSON_WIDGET = ("JSON", {"forceInput": True})
-
-METADATA_RAW = ("METADATA_RAW", {"forceInput": True})
 
 class SoCParameters2Pipe:
     def __init__(self):
@@ -58,21 +18,21 @@ class SoCParameters2Pipe:
             "required": {},
             "optional": {  
                     "SoCPipeParameters": (CLASSES.SOC_PIPE_PARAMETERS.value,),     
-                    "modelname": STRING_INPUT,
-                    "path_name": STRING_INPUT,
-                    "sampler_name": (any),
-                    "scheduler": (any),
-                    "scheduler_name": (any),
-                    "postive_prompt": STRING_INPUT,
-                    "negative_prompt": STRING_INPUT,
-                    "seed": INT_INPUT,
-                    "batch_count": INT_INPUT,
-                    "steps": INT_INPUT,
-                    "CFG": FLOAT_INPUT,
-                    "image_width": INT_INPUT,
-                    "image_height": INT_INPUT,
-                    "stage1_scale_factor": FLOAT_INPUT,
-                    "stage2_scale_factor": FLOAT_INPUT
+                    "modelname": TYPES.STRING_INPUT,
+                    "path_name": TYPES.STRING_INPUT,
+                    "sampler_name": (any,),
+                    "scheduler": (any,),
+                    "scheduler_name": (any,),
+                    "postive_prompt": TYPES.STRING_INPUT,
+                    "negative_prompt": TYPES.STRING_INPUT,
+                    "seed": TYPES.INT_INPUT,
+                    "batch_count": TYPES.INT_INPUT,
+                    "steps": TYPES.INT_INPUT,
+                    "CFG": TYPES.FLOAT_INPUT,
+                    "image_width": TYPES.INT_INPUT,
+                    "image_height": TYPES.INT_INPUT,
+                    "stage1_scale_factor": TYPES.FLOAT_INPUT,
+                    "stage2_scale_factor": TYPES.FLOAT_INPUT
                     }
                 }
 
@@ -137,7 +97,7 @@ class SoCPipe2Parameters:
         }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    RETURN_TYPES = (CLASSES.SOC_PIPE_PARAMETERS.value, STRING, STRING, (any), (any), (any), STRING, STRING, INT, INT, INT, FLOAT, INT, INT,FLOAT, FLOAT)
+    RETURN_TYPES = (CLASSES.SOC_PIPE_PARAMETERS.value, TYPES.STRING, TYPES.STRING, any, any, any, TYPES.STRING, TYPES.STRING, TYPES.INT, TYPES.INT, TYPES.INT, TYPES.FLOAT, TYPES.INT, TYPES.INT,TYPES.FLOAT, TYPES.FLOAT)
     RETURN_NAMES = ("SoCPipeParameters", "modelname", "path_name", "sampler_name", "scheduler", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width", "stage1_scale_factor", "stage2_scale_factor")
 
     FUNCTION = "execute"
