@@ -35,9 +35,7 @@ class TYPES(Enum):
 
     STRING_INPUT = ("STRING", {"default": "",
                            "forceInput": True})
-
-    STRING = ("STRING", {"default": ""})
-
+    
     STRING_ML = ("STRING", {"multiline": True, "default": ""})
 
     STRING_WIDGET = ("STRING", {"forceInput": True})
