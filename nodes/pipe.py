@@ -58,21 +58,21 @@ class SoCParameters2Pipe:
             "required": {},
             "optional": {  
                     "SoCPipeParameters": (CLASSES.SOC_PIPE_PARAMETERS.value,),     
-                    "modelname": STRING,
-                    "path_name": STRING,
+                    "modelname": STRING_INPUT,
+                    "path_name": STRING_INPUT,
                     "sampler_name": (any),
                     "scheduler": (any),
                     "scheduler_name": (any),
-                    "postive_prompt": STRING,
-                    "negative_prompt": STRING,
-                    "seed": INT,
-                    "batch_count": INT,
-                    "steps": INT,
-                    "CFG": FLOAT,
-                    "image_width": INT,
-                    "image_height": INT,
-                    "stage1_scale_factor": FLOAT,
-                    "stage2_scale_factor": FLOAT
+                    "postive_prompt": STRING_INPUT,
+                    "negative_prompt": STRING_INPUT,
+                    "seed": INT_INPUT,
+                    "batch_count": INT_INPUT,
+                    "steps": INT_INPUT,
+                    "CFG": FLOAT_INPUT,
+                    "image_width": INT_INPUT,
+                    "image_height": INT_INPUT,
+                    "stage1_scale_factor": FLOAT_INPUT,
+                    "stage2_scale_factor": FLOAT_INPUT
                     }
                 }
 
