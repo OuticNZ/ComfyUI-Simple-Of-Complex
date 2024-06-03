@@ -60,9 +60,9 @@ class SoCParameters2Pipe:
                     "SoCPipeParameters": (CLASSES.SOC_PIPE_PARAMETERS.value,),     
                     "modelname": STRING,
                     "path_name": STRING,
-                    "sampler_name": any,
-                    "scheduler": any,
-                    "scheduler_name": any,
+                    "sampler_name": (any),
+                    "scheduler": (any),
+                    "scheduler_name": (any),
                     "postive_prompt": STRING,
                     "negative_prompt": STRING,
                     "seed": INT,
@@ -137,7 +137,7 @@ class SoCPipe2Parameters:
         }
 
     CATEGORY = "SimpleOfComplex/Pipe"
-    RETURN_TYPES = (CLASSES.SOC_PIPE_PARAMETERS.value, STRING, STRING, any, any, any, STRING, STRING, INT, INT, INT, FLOAT, INT, INT,FLOAT, FLOAT)
+    RETURN_TYPES = (CLASSES.SOC_PIPE_PARAMETERS.value, STRING, STRING, (any), (any), (any), STRING, STRING, INT, INT, INT, FLOAT, INT, INT,FLOAT, FLOAT)
     RETURN_NAMES = ("SoCPipeParameters", "modelname", "path_name", "sampler_name", "scheduler", "scheduler_name", "postive_prompt", "negative_prompt", "seed", "batch_count", "steps", "CFG", "image_height", "image_width", "stage1_scale_factor", "stage2_scale_factor")
 
     FUNCTION = "execute"
