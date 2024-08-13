@@ -4,7 +4,6 @@ class TextWithContext:
     def INPUT_TYPES(cls):
 
         return {"required": {
-            "CONTEXT": ("RGTHREE_CONTEXT"),
             "text": ("STRING", {"multiline": False, "default": ""})
         }}
     
