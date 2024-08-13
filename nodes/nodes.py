@@ -1,4 +1,16 @@
-import xml.etree.ElementTree as ET
+class TextWithContext:
+
+    @classmethod
+    def INPUT_TYPES(cls):
+
+        return {"required": {
+            "CONTEXT": ("RGTHREE_CONTEXT"),
+            "text": ("STRING", {"multiline": False, "default": ""})
+        }}
+    
+    RETURN_TYPES = ("RGTHREE_CONTEXT","STRING", )
+    #RETURN_TYPES = ORIG_CTX_RETURN_TYPES
+    #RETURN_NAMES = ORIG_CTX_RETURN_NAMES
 
 class TextSwitch2Way:     
 
