@@ -1,6 +1,6 @@
-from context import TextWithContext 
-from prompttidy import PromptTidy
-from textswitch2way import TextSwitch2Way
+from .context import TextWithContext 
+from .prompttidy import PromptTidy
+from .textswitch2way import TextSwitch2Way
 
 NODE_CLASS_MAPPINGS = { 
     "Text Switch 2 Way": TextSwitch2Way,
