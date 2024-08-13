@@ -4,7 +4,7 @@ class TextWithContext:
     def INPUT_TYPES(cls):
 
         return {"required": {
-            "text": ("STRING", {"multiline": False, "default": ""})
+            "text": ("STRING", {"multiline": True, "default": ""})
         }}
     
     _all_context_input_output_data = {
