@@ -4,6 +4,7 @@ from .nodes.nodes import *
 NODE_CLASS_MAPPINGS = { 
     "Text Switch 2 Way": TextSwitch2Way,
     "Prompt Tidy": PromptTidy,
+    "Text With Context": TextWithContext
     #"Pipe To Parameters": SoCParameters2Pipe,
     #"Pipe From Parameters": SoCPipe2Parameters,
     }
