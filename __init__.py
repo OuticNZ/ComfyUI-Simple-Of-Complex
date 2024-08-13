@@ -1,5 +1,6 @@
-from .nodes.nodes import *
-#from .nodes.pipe import *
+from nodes.context import TextWithContext 
+from nodes.prompttidy import PromptTidy
+from nodes.textswitch2way import TextSwitch2Way
 
 NODE_CLASS_MAPPINGS = { 
     "Text Switch 2 Way": TextSwitch2Way,
