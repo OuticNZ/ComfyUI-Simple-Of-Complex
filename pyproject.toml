@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-simple-of-complex"
+description = "Nodes:Text Switch 2 Way, Prompt Tidy, Text With Context."
+version = "1.0.0"
+license = {file = "LICENSE"}
+
+[project.urls]
+Repository = "https://github.com/OuticNZ/ComfyUI-Simple-Of-Complex"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-Simple-Of-Complex"
+Icon = ""
